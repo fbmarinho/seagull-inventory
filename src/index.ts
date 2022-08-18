@@ -1,2 +1,2 @@
-let greeting: string = 'Hello Typescript';
+let greeting: string = 'Hello Seagull';
 document.body.appendChild(document.createTextNode(greeting));
