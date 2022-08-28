@@ -2,7 +2,7 @@
   "name": "wpts",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack -w"
   },
   "devDependencies": {
     "ts-loader": "^9.3.1",
