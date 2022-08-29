@@ -1,13 +1,11 @@
-
-import { Position, Dimension } from '../system/types';
 import Drawing from './drawing';
 import Equipment from './equipment';
 
 class Container extends Drawing {
   content: Equipment[];
   location?: string;
-  constructor(ctx: CanvasRenderingContext2D, pos: Position, dimension: Dimension){
-    super(ctx, pos, dimension);
+  constructor(pos: Position, dimension: Dimension){
+    super(pos, dimension);
     this.content = [];
   }
   addEquipment(equipment: Equipment){
