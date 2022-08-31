@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+}
+
+#app {
+  display: flex;
+  flex-direction: row;
+}
+
+#sidebar {
+  width: 50px;
+  height: 100vh;
+  background-color: #eee;
+}
+
+#stage {
+  width: 100%;
+  display: flex;
+}
+
+canvas {
+  background-color: #fff;
+}

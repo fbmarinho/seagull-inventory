@@ -5,4 +5,5 @@ export default interface IStage {
   context: CanvasRenderingContext2D;
   render?: Drawing[];
   attach(object:Drawing):void;
+  resize():void;
 }

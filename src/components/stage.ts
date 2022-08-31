@@ -5,12 +5,13 @@ class Stage implements IStage {
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
   render: Drawing[];
-  constructor(id?:string, width?: number, height?: number){
+  constructor(id?:string){
     this.canvas = id ? this.getCanvasElement(id) : this.createCanvasElement();
     this.context = this.canvas.getContext('2d') as CanvasRenderingContext2D;
     this.render = [];
-    this.canvas.width = width || window.innerWidth;
-    this.canvas.height = height || window.innerHeight;
+    this.canvas.style.width = "100%";
+    this.canvas.style.height = "100%";
+    this.resize();
     this.start();
   }
   private start(){
@@ -35,6 +36,11 @@ class Stage implements IStage {
   }
   private getCanvasElement(id:string):HTMLCanvasElement{
     return document.getElementById(id) as HTMLCanvasElement;
+  }
+  resize(){
+    console.log(this.canvas.offsetWidth)
+    this.canvas.width  = this.canvas.offsetWidth;
+    this.canvas.height = this.canvas.offsetHeight;
   }
 }
 

@@ -3,6 +3,7 @@ declare type Stage = {
   context: CanvasRenderingContext2D;
   render?: Drawing[];
   attach(object:Drawing):void;
+  resize():void;
 }
 
 declare type Position = {
