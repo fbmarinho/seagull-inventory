@@ -1,5 +1,4 @@
 declare type Stage = {
-  id:string;
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
   render?: Drawing[];
