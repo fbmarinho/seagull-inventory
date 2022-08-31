@@ -2,6 +2,7 @@ import IStage from '../interfaces/stage';
 import Drawing from './drawing';
 
 class Stage implements IStage {
+  mouse: {x:number, y:number, down:boolean};
   canvas: HTMLCanvasElement;
   context: CanvasRenderingContext2D;
   render: Drawing[];
@@ -13,6 +14,7 @@ class Stage implements IStage {
     this.canvas.style.height = "100%";
     this.resize();
     this.start();
+    this.mouse = {x:0, y:0, down: false};
   }
   private start(){
     this.animate();
@@ -25,6 +27,7 @@ class Stage implements IStage {
     this.render?.forEach(e=>e.draw());
   }
   private animate(){
+    this.clearCanvas();
     this.draw();
     requestAnimationFrame(()=>this.animate());
   }
@@ -36,6 +39,9 @@ class Stage implements IStage {
   }
   private getCanvasElement(id:string):HTMLCanvasElement{
     return document.getElementById(id) as HTMLCanvasElement;
+  }
+  private clearCanvas(){
+    this.context.clearRect(0,0,this.canvas.width, this.canvas.height);
   }
   resize(){
     console.log(this.canvas.offsetWidth)
