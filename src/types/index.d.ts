@@ -14,8 +14,6 @@ declare type Position = {
 }
 
 declare type Dimension = {
-  length:number,
-  depth:number,
+  width:number,
   height:number,
-  scale?: number
 }

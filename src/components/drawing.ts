@@ -1,10 +1,13 @@
-export default class Drawing {
+export default class Drawing{
   ctx: CanvasRenderingContext2D;
   constructor(){
     this.ctx = STAGE.context;
     STAGE.attach(this);
   }
-  draw(){
+  update():void{
+    //
+  }
+  draw():void{
     this.ctx.strokeStyle = "#000";
     this.ctx.beginPath();
     this.ctx.lineWidth = 1;

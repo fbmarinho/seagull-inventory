@@ -1,13 +1,13 @@
-import Drawing from './drawing';
+import Dragable from './dragable';
 import Equipment from './equipment';
 
-class Container extends Drawing {
+class Container extends Dragable{
   content: Equipment[];
   location?: string;
   pos: Position;
   dimension: Dimension;
   constructor(pos: Position, dimension: Dimension){
-    super();
+    super(pos, dimension);
     this.content = [];
     this.pos = pos;
     this.dimension = dimension;
@@ -22,20 +22,14 @@ class Container extends Drawing {
     this.location = location;
   }
   draw(){
-    let w = this.m2Pix(this.dimension.length);
-    let h = this.m2Pix(this.dimension.depth);
     this.ctx.fillStyle = "#ccc";
     this.ctx.strokeStyle = "#000";
     this.ctx.rotate(this.pos.angle || 0)
     this.ctx.beginPath();
-    this.ctx.rect(this.pos.x, this.pos.y, w, h);
+    this.ctx.rect(this.pos.x, this.pos.y, this.dimension.width, this.dimension.height);
     this.ctx.closePath();
     this.ctx.stroke();
     this.ctx.fill();
-  }
-  private m2Pix(n:number){
-    let scale = this.dimension.scale || 1;
-    return n*10*scale;
   }
 }
 

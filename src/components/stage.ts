@@ -23,11 +23,15 @@ class Stage implements IStage {
   attach(object:Drawing){
     this.render.push(object);
   }
+  private update(){
+    this.render?.forEach(e=>e.update());
+  }
   private draw(){
     this.render?.forEach(e=>e.draw());
   }
   private animate(){
     this.clearCanvas();
+    this.update();
     this.draw();
     requestAnimationFrame(()=>this.animate());
   }
